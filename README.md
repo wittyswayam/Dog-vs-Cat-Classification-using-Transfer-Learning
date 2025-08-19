@@ -11,9 +11,8 @@ This project demonstrates image classification using transfer learning to distin
 
 ⚙️ Installation & Dependencies
 
-Clone the repository and install dependencies:
+Install dependencies:
 
-git clone https://github.com/wittyswayam/Dog-vs-Cat-Classification.git
 cd Dog-vs-Cat-Classification
 pip install -r requirements.txt
 
