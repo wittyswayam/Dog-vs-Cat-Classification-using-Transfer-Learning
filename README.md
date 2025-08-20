@@ -1,86 +1,107 @@
-🐶🐱 Dog vs Cat Classification using Transfer Learning
+🚢 Titanic Survival Prediction
 
-This project demonstrates image classification using transfer learning to distinguish between dogs and cats. The notebook covers dataset extraction, preprocessing, model training, evaluation, and predictions using deep learning techniques.
+
+
+
+
+
+
+
+This project focuses on predicting the survival of passengers aboard the RMS Titanic using supervised machine learning techniques. The Titanic dataset is one of the most popular beginner-level datasets on Kaggle, often used to demonstrate the process of building a complete end-to-end machine learning pipeline.
 
 📂 Project Structure
-📦 Dog_vs_Cat_Classification
- ┣ 📜 DL_Project_3_Dog_vs_Cat_Classification_Transfer_Learning.ipynb  # Main Jupyter Notebook
- ┣ 📜 kaggle.json                                                     # Kaggle API key (not uploaded in repo)
- ┣ 📜 README.md                                                       # Documentation
- ┣ 📜 requirements.txt                                                # Python dependencies
+├── titanic-survival-random-forest-approach.ipynb   # Jupyter Notebook with full workflow
+├── train.csv                                       # Training dataset with labels
+├── test.csv                                        # Test dataset for predictions
+├── gender_submission.csv                           # Example Kaggle submission file
+└── README.md                                       # Project documentation
 
-⚙️ Installation & Dependencies
+📂 Dataset
 
-Install dependencies:
+The dataset comes from Kaggle - Titanic: Machine Learning from Disaster
+.
 
-cd Dog-vs-Cat-Classification
-pip install -r requirements.txt
+train.csv → Training dataset with features + survival labels
 
-Required Libraries
+test.csv → Test dataset for predictions
 
-kaggle – to download dataset from Kaggle competitions
+gender_submission.csv → Example Kaggle submission format
 
-numpy & pandas – data handling
+Notebook → Code with preprocessing, model training, and predictions
 
-matplotlib & seaborn – visualizations
+🔑 Project Workflow
 
-tensorflow / keras – deep learning models
+Data Cleaning & Preprocessing
 
-os, zipfile – dataset extraction & file handling
+Imputed missing values (Age, Fare, Embarked)
 
-📊 Dataset
+Encoded categorical variables (Sex, Embarked)
 
-Dataset: Dogs vs Cats (Kaggle Competition)
+Engineered features like Family Size and Title extraction
 
-Images are divided into training and validation sets.
+Exploratory Data Analysis (EDA)
 
-Preprocessing includes resizing, normalization, and data augmentation.
+Survival rates across gender, class, and age
 
-🚀 Workflow
+Correlation heatmaps & bar plots
 
-Dataset Download & Extraction
+Strongest predictors: Sex, Pclass, Age
 
-Download dataset using Kaggle API
+Feature Engineering
 
-Extract .zip files and organize into train/test directories
+Binned continuous variables (Age, Fare)
 
-Data Preprocessing
+Combined class & gender features for stronger signals
 
-Image resizing & normalization
+Model Development
 
-Data augmentation for better generalization
+Algorithms tested: Logistic Regression, Random Forest, SVM
 
-Model Building (Transfer Learning)
+Hyperparameter tuning + cross-validation
 
-Use pre-trained models like VGG16, ResNet, or Inception
+Random Forest achieved best accuracy
 
-Freeze base layers and add custom dense layers for classification
+Predictions & Submission
 
-Training & Validation
+Final predictions generated on test dataset
 
-Train on augmented dataset
+Output formatted in gender_submission.csv style for Kaggle
 
-Monitor performance using accuracy and loss curves
+🛠️ Tools & Technologies
 
-Evaluation
+Python (3.8+)
 
-Evaluate model on validation/test dataset
+Jupyter Notebook
 
-Generate accuracy, confusion matrix, and classification report
+Pandas, NumPy, Matplotlib, Seaborn
 
-Prediction
+Scikit-learn
 
-Predict if a new image is a Dog 🐶 or a Cat 🐱
+📊 Results & Insights
 
-📌 Example Prediction
-from tensorflow.keras.preprocessing import image
-import numpy as np
+Gender was the most important predictor (females more likely to survive)
 
-# Load and preprocess image
-img = image.load_img("sample.jpg", target_size=(224,224))
-img_array = image.img_to_array(img)
-img_array = np.expand_dims(img_array, axis=0) / 255.0
+Passenger Class (Pclass) strongly influenced outcomes
 
-# Prediction
-prediction = model.predict(img_array)
-print("Prediction:", "Dog 🐶" if prediction[0][0] > 0.5 else "Cat 🐱")
+Random Forest Classifier outperformed Logistic Regression and SVM
+
+Feature engineering (titles, family size) improved predictive performance
+
+🔮 Future Improvements
+
+🧩 Ensemble Learning (Stacking, Gradient Boosting)
+
+🤖 Neural Networks for deep feature learning
+
+📝 NLP on passenger names/tickets for hidden patterns
+
+⚡ Hyperparameter optimization with GridSearchCV or Bayesian methods
+
+🔁 Test model generalization on similar demographic datasets
+
+🌟 Conclusion
+
+This project demonstrates an end-to-end ML workflow:
+✅ Data preprocessing → ✅ EDA → ✅ Feature engineering → ✅ Model training → ✅ Prediction.
+
+It highlights critical ML concepts while applying them to a well-known dataset. Future improvements can extend this project towards advanced AI and ensemble learning approaches.
